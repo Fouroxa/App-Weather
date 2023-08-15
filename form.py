@@ -9,11 +9,18 @@
 from PyQt6 import QtCore, QtGui, QtWidgets
 import requests
 
+
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
         Dialog.resize(945, 676)
         Dialog.setMinimumSize(QtCore.QSize(945, 0))
+        self.label_6 = QtWidgets.QLabel(parent=Dialog)
+        self.label_6.setGeometry(QtCore.QRect(0, 0, 941, 671))
+        self.label_6.setText("")
+        self.label_6.setPixmap(QtGui.QPixmap("weather.jpg"))
+        self.label_6.setScaledContents(True)
+        self.label_6.setObjectName("label_6")
         self.label = QtWidgets.QLabel(parent=Dialog)
         self.label.setGeometry(QtCore.QRect(250, 10, 221, 41))
         font = QtGui.QFont()
@@ -142,7 +149,6 @@ class Ui_Dialog(object):
         self.label_7.setText(_translate("Dialog", "Восход:"))
         self.label_8.setText(_translate("Dialog", "Закат:"))
 
-
     def btn_onClick(self):
         city = self.lineEdit.text()
         response = requests.get(
@@ -155,7 +161,6 @@ class Ui_Dialog(object):
         self.lineEdit_4.setText(response1[3])
         self.lineEdit_6.setText(response1[4])
         self.lineEdit_7.setText(response1[5])
-
 
 
 if __name__ == "__main__":
